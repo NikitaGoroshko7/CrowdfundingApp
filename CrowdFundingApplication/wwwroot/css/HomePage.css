@@ -1,0 +1,133 @@
+﻿/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;500;600&display=swap');
+
+body {
+    font-family: "Signika", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+h1, h6 {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+section {
+    padding-top: 80px;
+    padding: 80px;
+}
+
+hr {
+    background-color: gray;
+    height: 1px;
+    margin: 18px auto;
+    opacity: 15%;
+}
+
+#cover1 {
+    background-image: url("../Images/img1.jpg");
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+    #cover1 h1 {
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+
+.overlay {
+    position: relative;
+    z-index: 2;
+}
+
+    .overlay::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(36,44,48,0.4);
+        z-index: -1;
+    }
+
+.btn {
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #a30846;
+    border-color: #a30846;
+    border-radius: 8px;
+}
+
+    .btn-primary:active {
+        background-color: #a30846 !important;
+        border-color: #a30846 !important;
+    }
+
+.main-button:hover {
+    border-color: #a30846;
+    background-color: transparent;
+}
+
+.btn-primary:hover {
+    border-color: #6e032e !important;
+    background-color: #6e032e !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    box-shadow: none;
+}
+
+.navbar {
+    transition: all 0.4s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.intro {
+    margin-bottom: 50px;
+}
+
+    .intro .divider {
+        background-color: black;
+        height: 2px;
+        width: 265px;
+        margin: 18px auto;
+    }
+
+#cover2 {
+    background-image: url("../Images/img3.jpg");
+    height: 210px;
+}
+
+#about {
+    display: flex;
+}
+
+footer a {
+    color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+    footer a:hover {
+        color: #bf0851;
+    }

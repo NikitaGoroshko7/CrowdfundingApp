@@ -1,5 +1,4 @@
-﻿//////////////////////////////////////////////////////////
-//появление navbar'a
+﻿//appearance navbar
 $(window).scroll(function () {
     if ($(window).scrollTop() > 0) {
         $('.navbar').css('background', '#212529');
@@ -7,8 +6,8 @@ $(window).scroll(function () {
         $('.navbar').css('background', 'transparent');
     }
 })
-//////////////////////////////////////////////////////////
-//авто скролл до определенной секции
+
+//autoscroll to info section
 function scrollTo(element) {
     window.scroll({
         left: 0,

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {}
+    "D:\\Projects\\~CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {
+    "D:\\Projects\\~CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
+        "projectUniqueName": "D:\\Projects\\~CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
         "projectName": "CrowdFundingApplication",
-        "projectPath": "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
+        "projectPath": "D:\\Projects\\~CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
         "packagesPath": "C:\\Users\\n.goroshko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\obj\\",
+        "outputPath": "D:\\Projects\\~CrowdFunding Platform\\CrowdFundingApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

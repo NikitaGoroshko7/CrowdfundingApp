@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace CrowdFundingApplication.Controllers
+﻿namespace CrowdFundingApplication.Controllers
 {
     public class AccountController : Controller
     {

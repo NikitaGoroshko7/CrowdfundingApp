@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Программирование\\!Диплом\\CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {}
+    "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {}
   },
   "projects": {
-    "E:\\Программирование\\!Диплом\\CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {
+    "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Программирование\\!Диплом\\CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
+        "projectUniqueName": "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
         "projectName": "CrowdFundingApplication",
-        "projectPath": "E:\\Программирование\\!Диплом\\CrowdFunding Platform\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
-        "packagesPath": "C:\\Users\\ivani\\.nuget\\packages\\",
-        "outputPath": "E:\\Программирование\\!Диплом\\CrowdFunding Platform\\CrowdFundingApplication\\obj\\",
+        "projectPath": "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\CrowdFundingApplication.csproj",
+        "packagesPath": "C:\\Users\\n.goroshko\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\`CrowdFunding Project\\CrowdFundingApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ivani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n.goroshko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

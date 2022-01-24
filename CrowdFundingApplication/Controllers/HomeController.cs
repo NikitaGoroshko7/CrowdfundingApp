@@ -9,14 +9,23 @@
             _logger = logger;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [Authorize]
+        public IActionResult MainPage()
+        {
+
+            return Content(User.Identity.Name);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

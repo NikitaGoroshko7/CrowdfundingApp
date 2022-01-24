@@ -15,6 +15,11 @@ namespace CrowdFundingApplication
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient<IUserValidator<User>, CustomValidation>();
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>();
+
             services.AddControllersWithViews();
         }
 
@@ -36,6 +41,7 @@ namespace CrowdFundingApplication
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -13,7 +13,7 @@
                     Description = "Недопустимое имя пользоваля!"
                 });
             }
-            return Task.FromResult(errors.Count == 0 ?
+            return Task.FromResult(errors.Any() ?
                 IdentityResult.Success : IdentityResult.Failed(errors.ToArray()));
         }
     }

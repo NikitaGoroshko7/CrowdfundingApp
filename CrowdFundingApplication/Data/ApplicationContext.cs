@@ -6,5 +6,4 @@ public class ApplicationContext : IdentityDbContext<User>
     {
         Database.EnsureCreated();
     }
-
 }

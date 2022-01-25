@@ -24,7 +24,6 @@
         [Authorize]
         public IActionResult MainPage()
         {
-
             return Content(User.Identity.Name);
         }
 

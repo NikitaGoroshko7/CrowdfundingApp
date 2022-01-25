@@ -1,4 +1,6 @@
-﻿@{
+﻿@model CrowdFundingApplication.Models.RegisterViewModel
+
+@{
     Layout = null;
 }
 
@@ -14,50 +16,57 @@
 </head>
 <body class="overlay">
 
-    <section id="main" class="text-center overlay">
-        <div class="container py-5 h-100">
-            <div class="row justify-content-center align-items-center h-100">
-                <div class="col-12 col-lg-9 col-xl-7">
-                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                        <div class="card-body p-4 p-md-5">
-                            <h3 class="mb-4">Регистрация</h3>
-                            <hr />
-
-                            <form>
+    <form method="post" asp-action="Register">
+        <section class="vh-100">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="container py-5 h-100">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12 col-lg-9 col-xl-7">
+                        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                            <div class="card-body p-4 p-md-5">
+                                <h3 class="mb-4">Регистрация</h3>
+                                <hr />
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class=" d-flex justify-content-start">
-                                            <label class="form-label" for="firstName">Имя</label>
+                                            <label class="form-label" asp-for="UserName">Имя</label>
                                         </div>
-                                        <input type="text" id="firstName" class="form-control form-control-lg" />
+                                        <input type="text" asp-for="UserName" class="form-control form-control-lg" />
+                                        <div class="d-flex justify-content-start">
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class=" d-flex justify-content-start">
-                                            <label class="form-label" for="lastName">Номер телефона</label>
+                                            <label class="form-label" asp-for="PhoneNumber">Номер телефона</label>
                                         </div>
-                                        <input type="tel" id="lastName" class="form-control form-control-lg" />
+                                        <input type="tel" asp-for="PhoneNumber" class="form-control form-control-lg" />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <div class=" d-flex justify-content-start">
-                                        <label class="form-label" for="lastName">Логин</label>
+                                        <label class="form-label" asp-for="Email">Логин</label>
                                     </div>
-                                    <input type="email" id="lastName" class="form-control form-control-lg" />
+                                    <input type="email" asp-for="Email" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class=" d-flex justify-content-start">
-                                            <label class="form-label" for="lastName">Пароль</label>
+                                            <label class="form-label" asp-for="Password">Пароль</label>
                                         </div>
-                                        <input type="password" id="lastName" class="form-control form-control-lg" />
+                                        <input type="password" asp-for="Password" class="form-control form-control-lg" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class=" d-flex justify-content-start">
-                                            <label class="form-label" for="lastName">Подтвердите пароль</label>
+                                            <label class="form-label" asp-for="ConfirmPassword">Подтвердите пароль</label>
                                         </div>
-                                        <input type="password" id="lastName" class="form-control form-control-lg" />
+                                        <input type="password" asp-for="ConfirmPassword" class="form-control form-control-lg" />
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                     </div>
                                 </div>
 
@@ -72,17 +81,17 @@
 
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Зарегистрироваться</button>
                                 <hr />
-                                <div class="small">
+                                <div class="small text-center">
                                     <label class="label-text">Уже были у нас? <a asp-area="" asp-controller="Account" asp-action="Login">Войти!</a></label>
                                 </div>
-                            </form>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </form>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

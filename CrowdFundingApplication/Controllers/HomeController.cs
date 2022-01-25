@@ -1,13 +1,4 @@
-﻿using CrowdFundingApplication.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CrowdFundingApplication.Controllers
+﻿namespace CrowdFundingApplication.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,14 +9,22 @@ namespace CrowdFundingApplication.Controllers
             _logger = logger;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [Authorize]
+        public IActionResult MainPage()
+        {
+            return Content(User.Identity.Name);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

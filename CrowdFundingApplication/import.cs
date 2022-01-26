@@ -20,4 +20,6 @@ global using Microsoft.AspNetCore.Authorization;
 global using CrowdFundingApplication.Models;
 global using CrowdFundingApplication.Data;
 global using CrowdFundingApplication.Validation;
+global using CrowdFundingApplication.Services;
+global using MimeKit;
 

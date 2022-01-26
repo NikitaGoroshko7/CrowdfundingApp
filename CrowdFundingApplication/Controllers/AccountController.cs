@@ -98,14 +98,9 @@
         }
 
         [HttpGet]
-        public IActionResult ResetPassword([FromQuery(Name = "userId")]string userId)
+        public IActionResult ResetPassword([FromQuery(Name = "userId")] string userId)
         {
-            if(userId is null)//check if user entered in url ~/Account/ResetPassword
-            {
-                return RedirectToAction("ForgotPassword", "Account");
-            }
-
-            return View();
+            return userId is null ? RedirectToAction("ForgotPassword", "Account") : View(); //check if user entered in url ~/Account/ResetPassword
         }
 
         [HttpPost]

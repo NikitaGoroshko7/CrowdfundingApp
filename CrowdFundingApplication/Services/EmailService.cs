@@ -16,7 +16,7 @@ public class EmailService
         using (var client = new MailKit.Net.Smtp.SmtpClient())
         {
             await client.ConnectAsync("smtp.gmail.com", 587, false);
-            await client.AuthenticateAsync("viewstarsettings@gmail.com", "899adminviewstar");
+            await client.AuthenticateAsync("viewstarsettings@gmail.com", Environment.GetEnvironmentVariable("Password"));
 
             await client.SendAsync(emailMessage);
             await client.DisconnectAsync(true);

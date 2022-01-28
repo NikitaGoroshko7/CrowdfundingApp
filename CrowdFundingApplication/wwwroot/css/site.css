@@ -1,65 +1,139 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
+﻿@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;500;600&display=swap');
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    font-family: "Signika", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.overlay {
+    position: relative;
+    z-index: 2;
+}
+
+    .overlay::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(36,44,48,0.4);
+        z-index: -1;
+    }
+
+h1, h6 {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+a {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white;
+}
+
+section {
+    padding-top: 80px;
+    padding: 80px;
+}
+
+.navbar {
+    background-color: #212529;
+}
+
+footer a {
+    font-weight: 600;
+    color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+    footer a:hover {
+        color: #bf0851;
+    }
+
+.breadcrumb {
+    background-color: white;
+}
+
+.breadcrumb a {
+    color: #007bff;
+}
+
+.breadcrumb a:hover {
+    color: #bf0851;
+}
+
+.card-body a {
+    text-decoration: underline;
+    text-transform: none;
+    color: black;
+}
+
+    .card-body a:hover {
+        color: #bf0851;
+    }
+
+.card-title {
+    text-transform: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-footer {
+    background-color: white;
+}
+
+
+.campaign-card-list {
+    position: relative;
+    min-height: 505px;
+}
+
+.campaign-card-list_list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 -15px;
+}
+
+.campaign-card-list_i {
+    height: 505px;
+    margin: 0 20px 30px;
+}
+
+
+
+.overlayfade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background: rgba(138, 4, 58, 0.96);
+}
+
+.cont:hover .overlayfade {
+    opacity: 1;
+}
+
+.text {
+    font-family: "Signika", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }

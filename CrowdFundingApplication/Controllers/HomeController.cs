@@ -9,13 +9,13 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    [AllowAnonymous]
+    [Authorize]
     public IActionResult Index() => View();
 
     [Authorize]
     public IActionResult Privacy() => View();
 
-    [Authorize]
+    [AllowAnonymous]
     public IActionResult MainPage() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -6,7 +6,7 @@ body {
     letter-spacing: 1px;
 }
 
-#main {
+.main {
     background-image: url("../Images/img1.jpg");
     height: 100vh;
     display: flex;

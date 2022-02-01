@@ -1,173 +1,98 @@
 ﻿@{
-    Layout = null;
+    ViewData["Title"] = "Главная";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ViewStar</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/HomePage.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+<br />
+<br />
 
-    @*NAVBAR*@
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="HomePage">ViewStar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse">
-                <ul class="navbar-nav ml-sm-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Проекты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">О нас</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="mt-4">
+    <h3>Рекомендуемые проекты</h3>
+    <hr class="mb-4" />
 
-    @*COVER1*@
-    <section id="cover1" class="text-white text-center overlay jarallax" data-jarallax data-speed="0.2">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>ViewStar</h1>
-                    <h6>Краундфандинговая платформа</h6>
-                    <br />
-                    <button class="main-button btn btn-primary" id="buttonStart">Начать</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="campaign-card-list ml-auto mr-0">
 
-    @*ABOUT CROWDFUNDING*@
-    <section id="about" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 mt-5">
-                    <h2>Что такое краундфандинг?</h2>
-                    <hr />
-                    <p>
-                        Краудфандинг (от англ. crowdfunding) — это способ коллективного финансирования проектов,
-                        при котором деньги на создание нового продукта поступают от его конечных потребителей.
-                    </p>
-                </div>
-                <div class="col-sm-6 text-center">
-                    <div class="rounded mx-auto d-block">
-                        <img class="img-fluid" src="~/Images/img2.jpg" height="450" width="350" />
+        <ul class="campaign-card-list_list ">
+            <li class="campaign-card-list_i">
+                <div class="card h-100" style="width: 18rem;">
+
+                    <div class="cont">
+                        <img src="~/images/img1.jpg" class="card-img-top image">
+                        <div class="overlayfade">
+                            <div class="text">Поддержать проект</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="text-start">
-                        Автор крауд-проекта может собрать средства на реализацию идеи и
-                        заранее оценить ее востребованность, а участник — сделать вклад в начинание автора и
-                        тем самым поддержать автора!
-                    </p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="text-lg-right">
-                        Изначально должна быть заявлена цель, определена необходимая денежная сумма, составлена 
-                        калькуляция всех расходов, а информация по ходу сбора средств должна быть открыта для всех.
-                    </p>
-                </div>
-            </div>
 
-        </div>
-    </section>
+                    <div class="card-body">
+                        <a class="small" href="#">Категория</a>
+                        <h6 class="card-title mt-1">Название</h6>
+                        <p class="card-text">Краткое описание проекта для которого необходимо собрадь деньги. Просто обычное описание какого-то проекта</p>
+                    </div>
 
-    @*COVER2*@
-    <section id="cover2" class="text-white overlay jarallax" data-jarallax data-speed="0.2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto text-center">
-                    <h2 class="text-white" data-aos="fade-down">ViewStar - это твоё начало!</h2>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="card-footer">
+                        <div class="progress mb-2" style="height: 3px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="" style="font-weight: bold; color: #007bff">25% </span> <br />
+                        <span style="color: gray">Собрано</span>
+                    </div>
 
-    @*INFO*@
-    <section id="info" class="text-center bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 intro mx-auto">
-                    <h2>Что такое ViewStar?</h2>
-                    <hr />
-                    <p>
-                        ViewStar - это новая краудфандингавая платформа, на которой уже прямо сейчас, именно ты, можешь разместить свой стартап
-                        и начать осуществлять свою идею в реальность! <br />
-                        Если у тебя уже есть идея, но ты не знаешь, где взять деньги на её реализацию, то регистрируйся прямо сейчас и создавай
-                        свой проект!
-                    </p>
                 </div>
-            </div>
-            <div class="row" data-aos="zoom-in">
-                <div class="rounded mx-auto d-block">
-                    <img class="img-fluid" src="~/Images/img4.png" height="500" width="700" />
-                </div>
-            </div>
-        </div>
-    </section>
+            </li>
 
-    @*BUTTONS*@
-    <div class="container px-5">
-        <div class="row gx-5">
-            <div class="col">
-                <a class="btn btn-primary btn-block" asp-area="" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
-                <br />
-            </div>
-            <div class="col">
-                <a class="btn btn-primary btn-block" asp-area="" asp-controller="Account" asp-action="Login">Войти</a>
-                <br />
-            </div>
-        </div>
+            <li class="campaign-card-list_i">
+                <div class="card h-100" style="width: 18rem;">
+
+                    <div class="cont">
+                        <img src="~/images/img1.jpg" class="card-img-top image">
+                        <div class="overlayfade">
+                            <div class="text">Поддержать проект</div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <a class="small" href="#">Категория</a>
+                        <h6 class="card-title mt-1">Название</h6>
+                        <p class="card-text">Краткое описание проекта для которого необходимо собрадь деньги. Просто обычное описание какого-то проекта</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="progress mb-2" style="height: 3px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="" style="font-weight: bold; color: #007bff">25% </span> <br />
+                        <span style="color: gray">Собрано</span>
+                    </div>
+
+                </div>
+            </li>
+
+            <li class="campaign-card-list_i">
+                <div class="card h-100" style="width: 18rem;">
+
+                    <div class="cont">
+                        <img src="~/images/img1.jpg" class="card-img-top image">
+                        <div class="overlayfade">
+                            <div class="text">Поддержать проект</div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <a class="small" href="#">Категория</a>
+                        <h6 class="card-title mt-1">Название</h6>
+                        <p class="card-text">Краткое описание проекта для которого необходимо собрадь деньги. Просто обычное описание какого-то проекта</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="progress mb-2" style="height: 3px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="" style="font-weight: bold; color: #007bff">25% </span> <br />
+                        <span style="color: gray">Собрано</span>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+
     </div>
-
-    <br /><br />
-    @*FOOTER*@
-    <footer class="text-center py-5 bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="mb-0">
-                        <a href="#">Github</a>
-                        <a href="#">Linkedin</a>
-                        <a href="#">Facebook</a>
-                        <a href="#">Instagram</a>
-                    </div>
-                    <p class="mb-0 py-3">&copy; 2022 - Design by Nikita. All rights reserved. </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/HomePageScript.js" asp-append-version="true"></script>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.8/jarallax.min.js"
-            integrity="sha512-ieMvcpXFcmaKJukz4J6H3C/jNUU6S1UUPDuAHiyk3Vxx8NEnKbGu+r3fGtK8+2D7Im1+ASmHCyPE0mRGL1rdaA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-</body>
-</html>
+</div>

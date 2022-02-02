@@ -1,0 +1,230 @@
+﻿@model CrowdFundingApplication.Models.EditProfileViewModel
+
+@{
+    ViewData["Title"] = "Настройки";
+}
+
+<div style="height: 25px;"></div>
+<form method="post" asp-action="Settings" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mt-5">
+        <div class="row">
+            <div class="col">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" asp-area="" asp-controller="Profile" asp-action="Index">Профиль</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" asp-area="" asp-controller="Profile" asp-action="CreatedProjects">Созданные проекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" asp-area="" asp-controller="Profile" asp-action="Balance">Управление балансом</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 5px;">
+                    <div class="card-body p-2 p-md-5">
+                        <h3 class="mb-4">Настройки</h3>
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="Email">Email</label>
+                                </div>
+                                <input type="text" asp-for="Email" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="NumberOfPhone">Номер телефона</label>
+                                </div>
+                                <input type="tel" asp-for="NumberOfPhone" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="NumberOfPhone" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-0" />
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="Age">Возраст</label>
+                                </div>
+                                <input type="number" asp-for="Age" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="Sex">Пол</label>
+                                </div>
+                                <div class="input-group" style="height: 45px;">
+                                    <select class="form-select w-auto" asp-for="Sex" aria-label="Default select example">
+                                        <option selected>- Не выбрано - </option>
+                                        <option value="Мужской">Мужской</option>
+                                        <option value="Женский">Женский</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-0" />
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="Country">Страна</label>
+                                </div>
+                                <input type="text" asp-for="Country" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="Country" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="City">Город</label>
+                                </div>
+                                <input type="text" asp-for="City" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-0" />
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="NewPassword">Новый пароль</label>
+                                </div>
+                                <input type="password" asp-for="NewPassword" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="NewPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="ConfirmPassword">Подтвердите пароль</label>
+                                </div>
+                                <input type="password" asp-for="ConfirmPassword" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-lg-4 text-center">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" for="lastName">Фотография</label>
+                                </div>
+                                <img id="output" class="rounded-circle" style="width: 150px; height: 160px;">
+                                <div class="row mt-1">
+                                    <div class="col">
+                                        <input type="file" name="Image" id="file" onchange="loadFile(event)" style="display: none;" />
+                                        <p><label for="file" name="Image" style="cursor: pointer;">Изменить</label></p>
+                                    </div>
+                                    <div class="col">
+                                        <p><label for="delete" style="cursor: pointer;" onclick="deleteFile()">Удалить</label></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="Description">О себе</label>
+                                </div>
+                                <div class="mt-3 form-floating">
+                                    <textarea class="form-control" id="sms" name="description" asp-for="Description" style="height: 140px;" placeholder="Расскажите о себе в двух словах!"></textarea>
+                                </div>
+                                <div class="mt-2" style="color: gray;">
+                                    <p style="cursor: pointer">Осталось <label id="result" style="cursor: pointer">100</label> символов</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <button class="btn btn btn-primary btn-block" style="text-transform: uppercase;" onclick="message();" type="submit">Сохранить изменения</button>
+                            <br />
+                        </div>
+                        <div class="col-lg-4">
+                            <a class="modal-open" style="color: white" data-id="demo-modal">Удалить аккаунт</a>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <div id="demo-modal" class="modal" role="dialog" tabindex="-1">
+                    <div class="model-inner">
+                        <div class="modal-header">
+                            <h4>Вы действительно хотите удалить аккаунт?</h4>
+                            <button class="modal-close" data-id="demo-modal" aria-label="Close"></button>
+                        </div>
+                        <p class="mt-3">
+                            Вы уверены, что хотите удалить свой аккаунт? В случае, если вы удалите свой аккаунт, все ваши данные
+                            будут немедленно удалены из базы данных!.
+                        </p>
+                        <hr />
+                        <div class="container px-5 ">
+                            <div class="row gx-5">
+                                <div class="col">
+                                    <a class="btn btn-danger btn-block" asp-area="" asp-controller="Profile" asp-action="DeleteProfile">Да</a>
+                                    <br />
+                                </div>
+                                <div class="col">
+                                    <a class="btn btn-success btn-block" asp-area="" asp-controller="Profile" asp-action="Settings">Нет</a>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    var loadFile = function(event) {
+                        var image = document.getElementById('output');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                    };
+
+                    var deleteFile = function(){
+                        var image = document.getElementById('output');
+                        image.src = "";
+                    }
+
+                    function showCount() {
+                        result.innerHTML = 100;
+                        result.innerHTML -= sms.value.length;
+                    }
+
+                    sms.onkeyup = sms.oninput = showCount;
+                    sms.onpropertychange = function() {
+                      if (event.propertyName == "value") showCount();
+                    }
+                    sms.oncut = function() {
+                      setTimeout(showCount, 0);
+                    };
+
+                    var message = function(){
+                        alert("Данные были успешно обновлены!");
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+</form>

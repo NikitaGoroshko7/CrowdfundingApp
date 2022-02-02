@@ -1,0 +1,53 @@
+﻿@model CrowdFundingApplication.Models.User
+
+@{
+    ViewData["Title"] = "Баланс";
+}
+
+<div style="height: 25px;"></div>
+<div class="mt-5">
+    <div class="row">
+        <div class="col">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: black;" asp-area="" asp-controller="Profile" asp-action="Index">Профиль</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: black;"asp-area="" asp-controller="Profile" asp-action="CreatedProjects">Созданные проекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" aria-current="page" href="#">Управление балансом</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-1">
+        <div class="col">
+            <div class="card shadow-2-strong card-registration" style="border-radius: 5px;">
+                <div class="card-body p-2 p-md-5">
+                    <h3 >Баланс</h3>
+                    <div class=" d-flex justify-content-start">
+                        <label class="form-label text-black-50" for="firstName">Ваш баланс</label>
+                    </div>
+                    <hr />
+
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-2 mt-3">
+                                 <h2 class="form-label text-black">@Model.Balance BYN</h2>
+                            </div>
+                            <div class="col-md-6 mb-2 mt-3">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit" asp-area="" asp-controller="Pay" asp-action="Payment">Пополнить баланс</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light" style="height: 350px;"></div>
+
+</div>

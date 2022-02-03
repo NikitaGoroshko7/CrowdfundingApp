@@ -13,19 +13,19 @@ public class ProfileController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-        return View(user);
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        return View(GetUserViewModel(user));
     }
 
     [HttpGet]
     public IActionResult Settings() => View();
 
     [HttpPost]
-    public async Task<IActionResult> Settings(EditProfileViewModel model, IFormFile Image)
+    public async Task<IActionResult> Settings(EditProfileViewModel model)
     {
         if (ModelState.IsValid)
         {
-            var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user is null)
             {
                 return View(model);
@@ -33,30 +33,50 @@ public class ProfileController : Controller
 
             //update dates for user
             if (model.Age is not null) user.Age = (int)model.Age;
-            if (model.Email is not null) user.Email = model.Email;
+            if (model.Email is not null)
+            {
+                user.Email = model.Email;
+                user.NormalizedEmail = model.Email.ToUpper();
+            }
+            if (model.Sex is not null)
+            {
+                if (model.Sex.Value.ToString() == "Male") user.Sex = "Мужской";
+                else user.Sex = "Женский";
+            }
             if (model.NumberOfPhone is not null) user.PhoneNumber = model.NumberOfPhone;
-            if (model.Sex is not null) user.Sex = model.Sex;
             if (model.Country is not null) user.Country = model.Country;
             if (model.City is not null) user.City = model.City;
             if (model.Description is not null) user.Description = model.Description;
-            if (Image is not null) user.Avatar = UploadedFile(Image);
+            if (model.Image is not null) user.AvatarFileName = UploadedFile(model.Image);
 
-            if (model.NewPassword is not null)//update password for user
+            //update password for user
+            if (model.OldPassword is not null
+                && model.NewPassword is not null
+                && model.ConfirmPassword is not null)
             {
-                var _passwordValidator = HttpContext.RequestServices.GetService(typeof(IPasswordValidator<User>)) as IPasswordValidator<User>;
-                var _passwordHasher = HttpContext.RequestServices.GetService(typeof(IPasswordHasher<User>)) as IPasswordHasher<User>;
-                IdentityResult result = await _passwordValidator.ValidateAsync(_userManager, user, model.NewPassword);
-
-                if (result.Succeeded)
-                {
-                    user.PasswordHash = _passwordHasher.HashPassword(user, model.NewPassword);
-                }
+                await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
             }
 
             await _userManager.UpdateAsync(user);
-            return RedirectToAction("Index","Profile");
+            return RedirectToAction("Index", "Profile");
         }
         return View();
+    }
+
+    public async Task<IActionResult> DeleteProfile()
+    {
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        await _userManager.DeleteAsync(user);//delete user from database
+        return RedirectToAction("MainPage", "Home");//doing redirect after deleting user profile
+    }
+
+    public IActionResult CreatedProjects() => View();
+
+    [HttpGet]
+    public async Task<IActionResult> Balance()
+    {
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        return View(GetUserViewModel(user));
     }
 
     private string UploadedFile(IFormFile image)
@@ -65,30 +85,32 @@ public class ProfileController : Controller
 
         if (image is not null)
         {
-            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Avatars");
-            uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Avatars");
+            uniqueFileName = Guid.NewGuid().ToString() + ".jpg";
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 image.CopyTo(fileStream);
             }
         }
         return uniqueFileName;
-    } 
-
-    public async Task<IActionResult> DeleteProfile()
-    {
-        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-        await _userManager.DeleteAsync(user);
-        return RedirectToAction("MainPage", "Home");
     }
 
-    public IActionResult CreatedProjects() => View();
-
-    [HttpGet]
-    public async Task<IActionResult> Balance()
+    private UserViewModel GetUserViewModel(User user)
     {
-        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-        return View(user);
+        var userViewModel = new UserViewModel
+        {
+            UserName = user.UserName,
+            AvatarFileName = user.AvatarFileName,
+            PhoneNumber = user.PhoneNumber,
+            Email = user.Email,
+            Sex = user.Sex,
+            Age = user.Age,
+            Balance = user.Balance,
+            City = user.City,
+            Country = user.Country,
+            Description = user.Description
+        };
+        return userViewModel;
     }
 }

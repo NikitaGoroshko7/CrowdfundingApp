@@ -1,4 +1,4 @@
-﻿@model CrowdFundingApplication.Models.User
+﻿@model CrowdFundingApplication.Models.UserViewModel
 
 @{
     ViewData["Title"] = "Баланс";
@@ -35,7 +35,7 @@
                     <form>
                         <div class="row">
                             <div class="col-md-6 mb-2 mt-3">
-                                 <h2 class="form-label text-black">@Model.Balance BYN</h2>
+                                 <H2 class="form-label text-black">@Model.Balance BYN</H2>
                             </div>
                             <div class="col-md-6 mb-2 mt-3">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit" asp-area="" asp-controller="Pay" asp-action="Payment">Пополнить баланс</button>

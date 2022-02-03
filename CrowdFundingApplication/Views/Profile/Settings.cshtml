@@ -68,11 +68,7 @@
                                     <label class="form-label" asp-for="Sex">Пол</label>
                                 </div>
                                 <div class="input-group" style="height: 45px;">
-                                    <select class="form-select w-auto" asp-for="Sex" aria-label="Default select example">
-                                        <option selected>- Не выбрано - </option>
-                                        <option value="Мужской">Мужской</option>
-                                        <option value="Женский">Женский</option>
-                                    </select>
+                                    <select class="form-select w-auto" asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" aria-label="Default select example"></select>
                                 </div>
                             </div>
                         </div>
@@ -100,6 +96,19 @@
                         </div>
 
                         <hr class="mt-0" />
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class=" d-flex justify-content-start">
+                                    <label class="form-label" asp-for="OldPassword">Старый пароль</label>
+                                </div>
+                                <input type="password" asp-for="OldPassword" class="form-control form-control-lg" />
+                                <div class="d-flex justify-content-start">
+                                    <span asp-validation-for="OldPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4"></div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class=" d-flex justify-content-start">
@@ -131,8 +140,8 @@
                                 <img id="output" class="rounded-circle" style="width: 150px; height: 160px;">
                                 <div class="row mt-1">
                                     <div class="col">
-                                        <input type="file" name="Image" id="file" onchange="loadFile(event)" style="display: none;" />
-                                        <p><label for="file" name="Image" style="cursor: pointer;">Изменить</label></p>
+                                        <input type="file" name="Image" asp-for="Image" id="file" onchange="loadFile(event)" style="display: none;" />
+                                        <p><label for="file" name="Image" asp-for="Image" style="cursor: pointer;">Изменить</label></p>
                                     </div>
                                     <div class="col">
                                         <p><label for="delete" style="cursor: pointer;" onclick="deleteFile()">Удалить</label></p>
@@ -163,66 +172,39 @@
                             <br />
                         </div>
                         <div class="col-lg-4">
-                            <a class="modal-open" style="color: white" data-id="demo-modal">Удалить аккаунт</a>
+                            <button class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#exampleModal">Удалить аккаунт</button>
                             <br />
                         </div>
                     </div>
                 </div>
 
-                <div id="demo-modal" class="modal" role="dialog" tabindex="-1">
-                    <div class="model-inner">
-                        <div class="modal-header">
-                            <h4>Вы действительно хотите удалить аккаунт?</h4>
-                            <button class="modal-close" data-id="demo-modal" aria-label="Close"></button>
-                        </div>
-                        <p class="mt-3">
-                            Вы уверены, что хотите удалить свой аккаунт? В случае, если вы удалите свой аккаунт, все ваши данные
-                            будут немедленно удалены из базы данных!.
-                        </p>
-                        <hr />
-                        <div class="container px-5 ">
-                            <div class="row gx-5">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Вы действительно хотите удалить аккаунт?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Вы уверены, что хотите удалить свой аккаунт? В случае, если вы удалите свой аккаунт, все ваши данные
+                                    будут немедленно удалены из базы данных!.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
                                 <div class="col">
-                                    <a class="btn btn-danger btn-block" asp-area="" asp-controller="Profile" asp-action="DeleteProfile">Да</a>
-                                    <br />
+                                    <button class="btn btn-danger btn-block" asp-area="" asp-controller="Profile" asp-action="DeleteProfile">Да</button>
                                 </div>
                                 <div class="col">
-                                    <a class="btn btn-success btn-block" asp-area="" asp-controller="Profile" asp-action="Settings">Нет</a>
-                                    <br />
+                                    <button class="btn btn-success btn-block" data-dismiss="modal">Нет</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    var loadFile = function(event) {
-                        var image = document.getElementById('output');
-                        image.src = URL.createObjectURL(event.target.files[0]);
-                    };
-
-                    var deleteFile = function(){
-                        var image = document.getElementById('output');
-                        image.src = "";
-                    }
-
-                    function showCount() {
-                        result.innerHTML = 100;
-                        result.innerHTML -= sms.value.length;
-                    }
-
-                    sms.onkeyup = sms.oninput = showCount;
-                    sms.onpropertychange = function() {
-                      if (event.propertyName == "value") showCount();
-                    }
-                    sms.oncut = function() {
-                      setTimeout(showCount, 0);
-                    };
-
-                    var message = function(){
-                        alert("Данные были успешно обновлены!");
-                    }
-                </script>
 
             </div>
         </div>

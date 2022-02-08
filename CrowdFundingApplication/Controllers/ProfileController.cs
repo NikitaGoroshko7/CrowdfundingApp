@@ -104,7 +104,7 @@ public class ProfileController : Controller
             AvatarFileName = user.AvatarFileName,
             PhoneNumber = user.PhoneNumber,
             Email = user.Email,
-            Sex = user.Sex,
+            Sex = user.Sex == "Мужской" ? Sex.Male : Sex.Female,
             Age = user.Age,
             Balance = user.Balance,
             City = user.City,

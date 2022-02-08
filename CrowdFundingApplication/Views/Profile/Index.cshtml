@@ -46,7 +46,11 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                             <i>Пол:</i>
-                            <p class="mb-0">@Model.Sex</p>
+                            <p class="mb-0">
+                                @if (Model.Sex == Sex.Male) ViewBag.Sex = "Мужской";
+                                else ViewBag.Sex = "Женский";
+                                @ViewBag.Sex
+                            </p>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                             <i>Страна:</i>

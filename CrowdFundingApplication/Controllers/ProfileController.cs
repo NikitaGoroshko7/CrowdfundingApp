@@ -79,6 +79,23 @@ public class ProfileController : Controller
         return View(GetUserViewModel(user));
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Balance(int Sum)
+    {   
+        if (Sum != 0)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var option = new CookieOptions();
+            option.Expires = DateTime.Now.AddMinutes(5);//set lifetime for cookie
+            Response.Cookies.Append("Sum", Sum.ToString(), option);//set cookie for sum
+
+            return RedirectToAction("Payment", "Pay", new { userId = user.Id});
+        }
+
+        return View();
+    }
+
     private string UploadedFile(IFormFile image)
     {
         string uniqueFileName = null;

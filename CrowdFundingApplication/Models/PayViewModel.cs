@@ -2,7 +2,6 @@
 
 public class PayViewModel
 {
-    public int Sum { get; set; }
     [Required]
     public string CardsName { get; set; }
 
@@ -16,4 +15,3 @@ public class PayViewModel
     [DataType(DataType.Password)]
     public string CVC { get; set; }
 }
-

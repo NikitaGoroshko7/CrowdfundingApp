@@ -10,9 +10,9 @@ public class PayController : Controller
     }
 
     [HttpGet]
-    public IActionResult Payment([FromQuery(Name = "userId")] string userId)
+    public IActionResult Payment([FromQuery(Name = "userId")] string userId, [FromQuery(Name = "Sum")] int Sum)
     {
-        ViewBag.Sum = Request.Cookies["Sum"];//seting sum in ViewBag for display 
+        ViewBag.Sum = Sum;//seting sum in ViewBag for display 
         return userId is null ? RedirectToAction("Balance","Profile") : View(); //check if user entered in url ~/Pay/Payment
     }
 
@@ -21,8 +21,9 @@ public class PayController : Controller
     {
         if (ModelState.IsValid)
         {
-            var sum = Request.Cookies["Sum"];
-            if (sum is null)//if cookie sum is null we return SessionTimeOut
+            var getModelSum = model.Sum.Split(" ");//geting sum from model
+            var sum = getModelSum[2];//seting sum
+            if (sum is null)//if sum is null we return SessionTimeOut
             {
                 return View("SessionTimeOut");
             }
@@ -31,10 +32,9 @@ public class PayController : Controller
             user.Balance += Convert.ToDecimal(sum);//update balance for user
             await _userManager.UpdateAsync(user);
 
-            Response.Cookies.Delete("Sum");//when we updated balance for user we're deleting cookie file 
             return View("PaymentSuccessful");
         }
 
-        return View(model);
+        return View("SessionTimeOut");
     }
 }

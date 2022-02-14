@@ -82,18 +82,8 @@ public class ProfileController : Controller
     [HttpPost]
     public async Task<IActionResult> Balance(int Sum)
     {   
-        if (Sum != 0)
-        {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            var option = new CookieOptions();
-            option.Expires = DateTime.Now.AddMinutes(5);//set lifetime for cookie
-            Response.Cookies.Append("Sum", Sum.ToString(), option);//set cookie for sum
-
-            return RedirectToAction("Payment", "Pay", new { userId = user.Id});
-        }
-
-        return View();
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        return Sum != 0 ? RedirectToAction("Payment", "Pay", new { userId = user.Id, Sum = Sum }) : View();
     }
 
     private string UploadedFile(IFormFile image)

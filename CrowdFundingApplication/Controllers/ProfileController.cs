@@ -83,7 +83,16 @@ public class ProfileController : Controller
     public async Task<IActionResult> Balance(int Sum)
     {   
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
-        return Sum != 0 ? RedirectToAction("Payment", "Pay", new { userId = user.Id, Sum = Sum }) : View();
+        if(Sum != 0 && Sum > 0)
+        {
+            return RedirectToAction("Payment", "Pay", new { userId = user.Id, Sum = Sum });
+        }
+        else
+        {
+            ModelState.AddModelError("","Ошибка!");
+        }
+
+        return View();
     }
 
     private string UploadedFile(IFormFile image)

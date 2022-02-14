@@ -12,8 +12,9 @@ public class PayController : Controller
     [HttpGet]
     public IActionResult Payment([FromQuery(Name = "userId")] string userId, [FromQuery(Name = "Sum")] int Sum)
     {
-        ViewBag.Sum = Sum;//seting sum in ViewBag for display 
-        return userId is null ? RedirectToAction("Balance","Profile") : View(); //check if user entered in url ~/Pay/Payment
+        var model = new PayViewModel { Sum = Sum.ToString() };//seting sum in ViewBag for display 
+
+        return userId is null ? RedirectToAction("Balance","Profile") : View(model); //check if user entered in url ~/Pay/Payment
     }
 
     [HttpPost]

@@ -14,7 +14,8 @@
                     <div class="circle circle-2"></div>
                 </div>
 
-                <input asp-for="Sum" name="Sum" value="Сумма пополнения: @Model.Sum BYN" readonly style="width:400px;margin-left: 70px;margin-bottom: 20px;font-size: 24px;"/>
+                <label style="width:400px;margin-left: 70px;font-size: 24px; color: white;">Сумма пополнения: </label>
+                <input asp-for="Sum" name="Sum" value="@Model.Sum" readonly style="width:400px;margin-left: 70px;margin-bottom: 20px;font-size: 24px;"/>
 
                 <div class="card">
                     <div class="logo">

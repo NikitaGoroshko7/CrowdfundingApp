@@ -10,9 +10,9 @@ public class PayController : Controller
     }
 
     [HttpGet]
-    public IActionResult Payment([FromQuery(Name = "userId")] string userId, [FromQuery(Name = "Sum")] int Sum)
+    public IActionResult Payment([FromQuery(Name = "userId")] string userId, [FromQuery(Name = "sum")] int sum)
     {
-        var model = new PayViewModel { Sum = Sum };//seting sum in model for display 
+        var model = new PayViewModel { Sum = sum };//seting sum in model for display 
 
         return userId is null ? RedirectToAction("Balance","Profile") : View(model); //check if user entered in url ~/Pay/Payment
     }

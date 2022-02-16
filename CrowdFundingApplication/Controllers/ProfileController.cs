@@ -80,12 +80,12 @@ public class ProfileController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Balance(int Sum)
+    public async Task<IActionResult> Balance(int sum)
     {   
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
-        if(Sum != 0 && Sum > 0)
+        if(sum > 0)
         {
-            return RedirectToAction("Payment", "Pay", new { userId = user.Id, Sum = Sum });
+            return RedirectToAction("Payment", "Pay", new { userId = user.Id, sum = sum });
         }
         else
         {

@@ -7,6 +7,30 @@
     height: 100vh;
 }
 
+.l1 {
+    width: 400px;
+    margin-left: 70px;
+    font-size: 24px;
+    color: white;
+}
+
+.inp1 {
+    width: 400px;
+    margin-left: 70px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 27px;
+    margin-left: 30px;
+}
+
 /* Button */
 .btn-primary {
     color: #fff;

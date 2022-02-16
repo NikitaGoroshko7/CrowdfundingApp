@@ -2,7 +2,7 @@
 
 public class PayViewModel
 {
-    public int Sum { get; set; }
+    public decimal Sum { get; set; }
 
     [Required]
     public string CardsName { get; set; }

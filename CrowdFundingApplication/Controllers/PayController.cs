@@ -23,7 +23,7 @@ public class PayController : Controller
         if (ModelState.IsValid)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            user.Balance += Convert.ToDecimal(model.Sum);//update balance for user
+            user.Balance += model.Sum;//update balance for user
             await _userManager.UpdateAsync(user);
 
             return View("PaymentSuccessful");

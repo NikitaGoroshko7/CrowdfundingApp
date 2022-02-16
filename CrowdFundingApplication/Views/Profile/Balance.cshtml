@@ -4,7 +4,6 @@
     ViewData["Title"] = "Баланс";
 }
 <form method="post" asp-action="Balance" >
-<div style="height: 25px;"></div>
 <div class="mt-5">
     <div class="row">
         <div class="col">
@@ -37,7 +36,7 @@
                                  <h2 class="form-label text-black">@Model.Balance BYN</h2>
                             </div>
                             <div class="col-md-6 mb-2 mt-3">
-                                <a class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-backdrop="static" data-target="#exampleModalCenter" style="color: white; ">Пополнить баланс</a>
+                                <a class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-backdrop="static" data-target="#exampleModalCenter">Пополнить баланс</a>
                             </div>
                         </div>
 
@@ -65,12 +64,12 @@
                     <input type="number" class="form-control form-control-lg" required id="sum" name="sum"/>
                 </div>
                 <div class="modal-footer">
-                    <div class="col" style="font-size: 10px;">
+                    <div class="col">
                         Нажимая «Перейти к оплате» вы даёте своё согласие на обработку персональных данных и соглашаетесь
                         с условиями пользовательского соглашения (Правилами платформы).
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit" style="height:70px;">Перейти к оплате</button>
+                        <button class="btn btn-primary" type="submit" >Перейти к оплате</button>
                     </div>
                 </div>
             </div>

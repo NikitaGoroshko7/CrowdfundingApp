@@ -3,8 +3,7 @@
 @{
     ViewData["Title"] = "Баланс";
 }
-
-<div style="height: 25px;"></div>
+<form method="post" asp-action="Balance" >
 <div class="mt-5">
     <div class="row">
         <div class="col">
@@ -32,22 +31,50 @@
                     </div>
                     <hr />
 
-                    <form>
                         <div class="row">
                             <div class="col-md-6 mb-2 mt-3">
-                                 <H2 class="form-label text-black">@Model.Balance BYN</H2>
+                                 <h2 class="form-label text-black">@Model.Balance BYN</h2>
                             </div>
                             <div class="col-md-6 mb-2 mt-3">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit" asp-area="" asp-controller="Pay" asp-action="Payment">Пополнить баланс</button>
+                                <a class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-backdrop="static" data-target="#exampleModalCenter">Пополнить баланс</a>
                             </div>
                         </div>
-                    </form>
+
 
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-light" style="height: 350px;"></div>
+     <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Пополнение баланса</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Пожалуйста, введите необходимую сумму для оплаты
+                    <div class="mt-2 d-flex justify-content-start">
+                        <label class="form-label">Сумма к оплате</label>
+                    </div>
+                    <input type="number" class="form-control form-control-lg" required id="sum" name="sum"/>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        Нажимая «Перейти к оплате» вы даёте своё согласие на обработку персональных данных и соглашаетесь
+                        с условиями пользовательского соглашения (Правилами платформы).
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit" >Перейти к оплате</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
+</form>

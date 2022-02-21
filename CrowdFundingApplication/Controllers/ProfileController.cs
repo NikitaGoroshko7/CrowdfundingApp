@@ -79,6 +79,22 @@ public class ProfileController : Controller
         return View(GetUserViewModel(user));
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Balance(int sum)
+    {   
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        if(sum > 0)
+        {
+            return RedirectToAction("Payment", "Pay", new { userId = user.Id, sum = sum });
+        }
+        else
+        {
+            ModelState.AddModelError("","Ошибка!");
+        }
+
+        return View();
+    }
+
     private string UploadedFile(IFormFile image)
     {
         string uniqueFileName = null;

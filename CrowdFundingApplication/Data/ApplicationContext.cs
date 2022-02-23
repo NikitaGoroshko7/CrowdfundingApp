@@ -6,4 +6,6 @@ public class ApplicationContext : IdentityDbContext<User>
     {
         Database.EnsureCreated();
     }
+
+    public DbSet<CreateProject> createProjects { get; set; }
 }

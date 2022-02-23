@@ -1,4 +1,27 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿var change_button = function (checkbox, button) {
+    var btn = document.getElementById(button);
 
-// Write your JavaScript code.
+    if (checkbox.checked == true) {
+        btn.disabled = "";
+    } else {
+        btn.disabled = "disabled";
+    }
+}
+
+function showCount2() {
+    resultid.innerHTML = 125;
+    resultid.innerHTML -= sms2.value.length;
+}
+
+sms2.onkeyup = sms2.oninput = showCount2;
+sms2.onpropertychange = function () {
+    if (event.propertyName == "value") showCount2();
+}
+sms2.oncut = function () {
+    setTimeout(showCount, 0);
+};
+
+var loadFile = function (event) {
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+};

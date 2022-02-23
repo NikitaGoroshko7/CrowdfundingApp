@@ -1,0 +1,153 @@
+﻿@model CrowdFundingApplication.Models.CreateProjectViewModel
+
+@{
+    ViewData["Title"] = "Создание проекта";
+}
+
+<div style="height: 25px;"></div>
+<form method="post" asp-action="CreateProject" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mt-5">
+
+        <div class="row ml-0 mb-0">
+            <h3>Создание проекта</h3>
+        </div>
+
+        <hr class="mt-0" />
+
+        <div class="row">
+            <div class="col">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Основные данные</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Project" asp-action="CreateProjectInDetails">Детали</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Project" asp-action="Organization">Организатор</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow-5-strong card-registration">
+                    <div class="card-body p-2 p-md-3">
+
+                            <div class="row">
+                                <div class="col check1">
+                                    <span asp-validation-for="NameOfProject" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">Название проекта</span>
+                                        <input asp-for="NameOfProject" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col check1">
+                                    <span asp-validation-for="Image" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="input-group" style="height: 45px;">
+                                        <span class="input-group-text" for="inputGroupFile01">Обложка</span>
+                                        <input type="file" asp-for="Image" name="Image" class="form-control ml-0 h-100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col check1">
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Краткое описание</span>
+                                        <textarea asp-for="Description" id="sms2" class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-1" style="color: gray;">
+                                <div class="col">
+
+                                </div>
+                                <div class="col-lg-3">
+
+                                </div>
+                                <div class="col-lg-3 text_symbol">
+                                    Осталось <label id="resultid" style="cursor: pointer">125</label> символов
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <span asp-validation-for="Category" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Выберите категорию</span>
+                                        <select class="form-select w-auto" asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()" aria-label="Default select example" style="width:350px;"></select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col check1">
+                                    <span asp-validation-for="Sum" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Конечная сумма, BYN</span>
+                                        <input type="number" asp-for="Sum" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                           <div class="row">
+                                <div class="col check1">
+                                    <span asp-validation-for="Date" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Дата окончания </span>
+                                        <input type="date" asp-for="Date" class="form-control">
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" mt-3">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2">
+                    <button class="btn btn-primary btn-block justify-content-end but_continue" type="submit">Продолжить</button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-light space"></div>
+
+    </div>
+</form>

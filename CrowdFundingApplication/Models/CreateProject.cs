@@ -7,6 +7,6 @@ public class CreateProject
     public string ImageName { get; set; }
     public string Description { get; set; }
     public string Category { get; set; }
-    public int Sum { get; set; }
-    public string Date { get; set; }
+    public decimal Sum { get; set; }
+    public DateTime Date { get; set; }
 }

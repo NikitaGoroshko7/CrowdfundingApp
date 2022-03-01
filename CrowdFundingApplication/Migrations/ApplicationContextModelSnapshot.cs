@@ -31,8 +31,8 @@ namespace CrowdFundingApplication.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -43,8 +43,8 @@ namespace CrowdFundingApplication.Migrations
                     b.Property<string>("NameOfProject")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Sum")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Sum")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

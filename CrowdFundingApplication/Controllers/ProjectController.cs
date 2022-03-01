@@ -23,7 +23,7 @@ public class ProjectController : Controller
     public IActionResult CreateProject() => View();
 
     [HttpPost]
-    public IActionResult CreateProject(CreateProjectViewModel model)
+    public async Task<IActionResult> CreateProject(CreateProjectViewModel model)
     {
         if (ModelState.IsValid)
         {
@@ -42,8 +42,8 @@ public class ProjectController : Controller
                 model.ImageName = UploadedFileService.UploadedFile(model.Image, _webHostEnvironment, "ProjectImages");
 
                 var obj = GetCreateProject(model);
-                _db.Add(obj);
-                _db.SaveChanges();
+                await _db.AddAsync(obj);
+                await _db.SaveChangesAsync();
 
                 return RedirectToAction("CreateProjectInDetails", "Project");
             }
@@ -65,9 +65,9 @@ public class ProjectController : Controller
             NameOfProject = model.NameOfProject,
             ImageName = model.ImageName,
             Description = model.Description,
-            Category = model.Category.ToString(),
+            Category = model.Category,
             Sum = model.Sum,
-            Date = model.Date
+            Date = Convert.ToDateTime(model.Date)
         };
         return project;
     }

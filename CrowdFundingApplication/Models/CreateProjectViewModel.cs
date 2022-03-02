@@ -1,6 +1,6 @@
 ﻿namespace CrowdFundingApplication.Models;
 
-public class CreateProjectViewModel
+public class EditProjectViewModel
 {
     [Required(ErrorMessage = "Не указано название проекта!")]
     public string NameOfProject { get; set; }

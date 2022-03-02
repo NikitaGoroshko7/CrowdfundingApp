@@ -23,7 +23,7 @@ public class ProjectController : Controller
     public IActionResult CreateProject() => View();
 
     [HttpPost]
-    public async Task<IActionResult> CreateProject(CreateProjectViewModel model)
+    public async Task<IActionResult> CreateProject(EditProjectViewModel model)
     {
         if (ModelState.IsValid)
         {
@@ -57,7 +57,7 @@ public class ProjectController : Controller
     [HttpGet]
     public IActionResult Organization() => View();
 
-    private CreateProject GetCreateProject(CreateProjectViewModel model)//convert CreateProjectViewModel in CreateProject for record in the database
+    private CreateProject GetCreateProject(EditProjectViewModel model)//convert CreateProjectViewModel in CreateProject for record in the database
     {
         var project = new CreateProject
         {

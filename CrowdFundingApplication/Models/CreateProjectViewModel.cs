@@ -12,7 +12,7 @@ public class CreateProjectViewModel
     public string Description { get; set; }
 
     [Required(ErrorMessage = "Не выбрана категория проекта!")]
-    public string Category { get; set; }
+    public Category Category { get; set; }
 
     [Required(ErrorMessage = "Не указана сумма проекта!")]
     public int Sum { get; set; }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CrowdFundingApplication.Migrations
 {
-    public partial class AddTableCreateProjectInDatabase : Migration
+    public partial class TableCreateProject : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,9 +17,9 @@ namespace CrowdFundingApplication.Migrations
                     NameOfProject = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Sum = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Category = table.Column<int>(type: "int", nullable: false),
+                    Sum = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

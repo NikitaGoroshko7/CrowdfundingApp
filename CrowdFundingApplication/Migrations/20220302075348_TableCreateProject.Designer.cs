@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrowdFundingApplication.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220223115615_AddTableCreateProjectInDatabase")]
-    partial class AddTableCreateProjectInDatabase
+    [Migration("20220302075348_TableCreateProject")]
+    partial class TableCreateProject
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,11 +30,11 @@ namespace CrowdFundingApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -45,8 +45,8 @@ namespace CrowdFundingApplication.Migrations
                     b.Property<string>("NameOfProject")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Sum")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Sum")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

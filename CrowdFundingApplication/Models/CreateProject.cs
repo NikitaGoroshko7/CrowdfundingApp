@@ -6,7 +6,7 @@ public class CreateProject
     public string NameOfProject { get; set; }
     public string ImageName { get; set; }
     public string Description { get; set; }
-    public string Category { get; set; }
+    public Category Category { get; set; }
     public decimal Sum { get; set; }
     public DateTime Date { get; set; }
 }

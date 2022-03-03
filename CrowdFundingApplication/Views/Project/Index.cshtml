@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Правила создания проекта";
+}
+
+<form method="post" asp-action="Index">
+    <div class="mt-5">
+
+        <div class="row ml-0 mb-0">
+            <h3>Правила создание проекта на ViewStar</h3>
+        </div>
+
+        <hr class="mt-0" />
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow-5-strong card-registration">
+                    <div class="card-body p-2 p-md-3">
+
+                        <div class="row">
+                            <div class="col">
+                                <h4>Ваш проект будет допущен до сбора средств, если:</h4>
+                                <ul>
+                                    <li>цель и условия вашего проекта четко сформулированы;</li>
+                                    <li>заданы временные рамки проекта и/или его финансовая цель;</li>
+                                    <li>четко определены и описаны все детали проекта.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col">
+                                <h4>Вы можете открыть проект, если:</h4>
+                                <ul>
+                                    <li>вам исполнилось 18 лет;</li>
+                                    <li>у вас имеется действующий счет в банке;</li>
+                                    <li>вы или ваша компания отвечаете всем необходимым требованиям.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col">
+                                <h4>Как происходит создание проекта?</h4>
+                                <ul>
+                                    <li>вы заполняете все необходимые данные для создания проекта</li>
+                                    <li>проект отправляется на модерацию платформы ViewStar</li>
+                                    <li>после того, как модератор одобрил проект, проект станет доступным для сбора средств.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                       <div class="mt-3 ml-3 mr-3 mb-5">
+                            <div class="agregation row">
+                                <div class="col mt-2">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" name="check" id="checkbox" onclick="change_button(this, 'button')">
+                                      <label class="label_name form-check-label" for="defaultCheck1">Я принимаю положение об использовании личной (персональной) информации при размещении проектов на платформе ViewStar и 
+                                          соглашаюсь с условиями использования сервиса народного финансирования (краудфандинг)</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-3 mt-4 mb-5">
+                                    <button class="sub_button btn btn-primary btn-block" disabled id="button" type="submit">Создать проект</button>
+                                </div>
+                            </div>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

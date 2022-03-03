@@ -47,7 +47,7 @@ public class ProfileController : Controller
             if (model.Country is not null) user.Country = model.Country;
             if (model.City is not null) user.City = model.City;
             if (model.Description is not null) user.Description = model.Description;
-            if (model.Image is not null) user.AvatarFileName = UploadedFile(model.Image);
+            if (model.Image is not null) user.AvatarFileName = UploadedFileService.UploadedFile(model.Image, _webHostEnvironment, "Avatars");
 
             //update password for user
             if (model.OldPassword is not null
@@ -93,23 +93,6 @@ public class ProfileController : Controller
         }
 
         return View();
-    }
-
-    private string UploadedFile(IFormFile image)
-    {
-        string uniqueFileName = null;
-
-        if (image is not null)
-        {
-            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Avatars");
-            uniqueFileName = Guid.NewGuid().ToString() + ".jpg";
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                image.CopyTo(fileStream);
-            }
-        }
-        return uniqueFileName;
     }
 
     private UserViewModel GetUserViewModel(User user)

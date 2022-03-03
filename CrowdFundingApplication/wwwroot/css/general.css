@@ -1,0 +1,60 @@
+﻿div.card .shadow-5-strong .card-registration {
+    border-radius: 5px;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+.agregation {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-left: 3px solid #46aad8;
+}
+
+.sub_button {
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+}
+
+.label_name {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+}
+
+.space {
+    height: 200px;
+}
+
+.check1 {
+    margin-left: 215px;
+}
+
+.but_continue {
+    text-transform: uppercase;
+}
+
+.input-group-text {
+    border-radius: 1px;
+    width: 209px;
+}
+
+.span {
+    margin-left: 215px;
+}
+
+.text_symbol {
+    text-align: right;
+    font-size: 12px;
+}
+
+.resultid{
+    color: gray;
+    cursor: pointer;
+}

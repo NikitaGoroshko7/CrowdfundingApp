@@ -9,7 +9,8 @@
 }
 
 function showCount2() {
-    resultid.innerHTML = 125;
+    var numbFromResulid = 125 * 1;
+    resultid.innerHTML = numbFromResulid;
     resultid.innerHTML -= sms2.value.length;
 }
 

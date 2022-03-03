@@ -27,8 +27,7 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
-            var date = DateTime.Parse(model.Date);
-            if (date < DateTime.Now)
+            if (model.Date < DateTime.Now)
             {
                 ModelState.AddModelError("Date", "Ошибка! Дата окончания проекта должна быть больше текущей!");
             }
@@ -38,7 +37,6 @@ public class ProjectController : Controller
             }
             else
             {
-                model.Date = DateTime.Parse(model.Date).ToShortDateString();
                 model.ImageName = UploadedFileService.UploadedFile(model.Image, _webHostEnvironment, "ProjectImages");
 
                 var obj = GetCreateProject(model);
@@ -61,7 +59,6 @@ public class ProjectController : Controller
     {
         var project = new CreateProject
         {
-            Id = Guid.NewGuid(),
             NameOfProject = model.NameOfProject,
             ImageName = model.ImageName,
             Description = model.Description,

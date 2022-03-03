@@ -1,6 +1,6 @@
 ﻿namespace CrowdFundingApplication.Models;
 
-public enum Category
+public enum CategoryEnum
 {
     [Display(Name = "Музыка")]
     Music = 1,

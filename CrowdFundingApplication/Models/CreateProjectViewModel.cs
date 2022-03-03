@@ -12,11 +12,11 @@ public class EditProjectViewModel
     public string Description { get; set; }
 
     [Required(ErrorMessage = "Не выбрана категория проекта!")]
-    public Category Category { get; set; }
+    public CategoryEnum Category { get; set; }
 
     [Required(ErrorMessage = "Не указана сумма проекта!")]
-    public int Sum { get; set; }
+    public decimal Sum { get; set; }
 
     [Required(ErrorMessage = "Не указана дата окончания проекта!")]
-    public string Date { get; set; }
+    public DateTime Date { get; set; }
 }

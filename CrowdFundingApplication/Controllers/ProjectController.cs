@@ -58,7 +58,7 @@ public class ProjectController : Controller
             Description = model.Description,
             Category = model.Category,
             Sum = model.Sum,
-            Date = Convert.ToDateTime(model.Date),
+            Date = model.Date,
             FullDescription = model.FullDescription
         };
         return project;

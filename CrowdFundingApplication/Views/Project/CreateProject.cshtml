@@ -45,7 +45,7 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
-                                    <div class="input-group" style="height: 45px;">
+                                    <div class="input-group">
                                         <span class="input-group-text" for="inputGroupFile01">Обложка</span>
                                         <input type="file" asp-for="Image" name="Image" class="form-control ml-0 h-100">
                                     </div>
@@ -86,7 +86,7 @@
                                 <div class="col">
                                     <div class="input-group">
                                         <span class="input-group-text">Выберите категорию</span>
-                                        <select class="form-select w-auto" asp-for="Category" asp-items="Html.GetEnumSelectList<CategoryEnum>()" aria-label="Default select example" style="width:350px;"></select>
+                                        <select class="form-select w-auto" asp-for="Category" asp-items="Html.GetEnumSelectList<CategoryEnum>()" aria-label="Default select example"></select>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                     <span class="input-group-text">Детальное описание</span>
                                 </div>
                                 <div class="row mt-2">
-                                    <p class="text-start" style="font-size: 12px;">
+                                    <p class="text-start description">
                                         Начните с представления себя, своей команды, а также с предыстории проекта. Далее опишите суть и цель проекта,
                                         объясните, в чем его уникальность и почему он должен заинтересовать людей. Распишите, на что будут потрачены
                                         вложенные пользователями средства. Избегайте монотонности изложения, разбивайте текст на абзацы с привлекательными
@@ -152,7 +152,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-9">
-                                <textarea asp-for="FullDescription" name="FullDescription" class="form-control" style="height: 310px;" aria-label="With textarea"></textarea>
+                                <textarea asp-for="FullDescription" name="FullDescription" class="form-control" aria-label="With textarea"></textarea>
                             </div>
                             <div class="row valid_desc">
                                 <div class="col check1">

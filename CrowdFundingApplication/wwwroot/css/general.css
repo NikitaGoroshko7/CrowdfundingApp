@@ -58,3 +58,12 @@
     color: gray;
     cursor: pointer;
 }
+
+.valid_desc{
+    margin-left:95px;
+}
+
+.description{
+    font-size:12px;
+    color: black;
+}

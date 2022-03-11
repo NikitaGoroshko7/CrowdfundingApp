@@ -49,12 +49,6 @@ public class ProjectController : Controller
         return View(model);
     }
 
-    [HttpGet]
-    public IActionResult CreateProjectInDetails() => View();
-
-    [HttpGet]
-    public IActionResult Organization() => View();
-
     private CreateProject GetCreateProject(EditProjectViewModel model)//convert CreateProjectViewModel in CreateProject for record in the database
     {
         var project = new CreateProject
@@ -64,7 +58,8 @@ public class ProjectController : Controller
             Description = model.Description,
             Category = model.Category,
             Sum = model.Sum,
-            Date = Convert.ToDateTime(model.Date)
+            Date = model.Date,
+            FullDescription = model.FullDescription
         };
         return project;
     }

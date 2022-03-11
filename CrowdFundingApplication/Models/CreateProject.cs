@@ -9,4 +9,5 @@ public class CreateProject
     public CategoryEnum Category { get; set; }
     public decimal Sum { get; set; }
     public DateTime Date { get; set; }
+    public string FullDescription { get; set; }
 }

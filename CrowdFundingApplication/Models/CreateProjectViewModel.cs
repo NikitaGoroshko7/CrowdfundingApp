@@ -19,4 +19,7 @@ public class EditProjectViewModel
 
     [Required(ErrorMessage = "Не указана дата окончания проекта!")]
     public DateTime Date { get; set; }
+
+    [Required(ErrorMessage = "Полное описание проекта должно быть заполнено!")]
+    public string FullDescription { get; set; }
 }

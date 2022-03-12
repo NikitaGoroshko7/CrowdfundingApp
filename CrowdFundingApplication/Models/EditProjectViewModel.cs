@@ -22,4 +22,19 @@ public class EditProjectViewModel
 
     [Required(ErrorMessage = "Полное описание проекта должно быть заполнено!")]
     public string FullDescription { get; set; }
+
+    [Required(ErrorMessage = "Вы не ввели ФИО!")]
+    public string FullName { get; set; }
+
+    [Required(ErrorMessage = "Вы не ввели рассчетный счет!")]
+    public string Bill { get; set; }
+
+    [Required(ErrorMessage = "Вы не ввели имя банка!")]
+    public string Bank { get; set; }
+
+    [Required(ErrorMessage = "Вы не выбрали тип!")]
+    public OrganizationEnum Type { get; set; }
+
+    [Required(ErrorMessage = "Вы не ввели инициалы!")]
+    public string Initials { get; set; }
 }

@@ -32,7 +32,7 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1">Название проекта</span>
+                                        <span class="input-group-text">Название проекта</span>
                                         <input asp-for="NameOfProject" type="text" class="form-control">
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Конечная сумма, BYN</span>
+                                        <span class="input-group-text">Конечная сумма, BYN</span>
                                         <input type="number" asp-for="Sum" class="form-control">
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Дата окончания </span>
+                                        <span class="input-group-text">Дата окончания </span>
                                         <input type="date" asp-for="Date" class="form-control">
                                     </div>
                             </div>
@@ -187,7 +187,7 @@
                            <div class="row mb-3">
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text wdt" id="basic-addon1">ФИО</span>
+                                        <span class="input-group-text wdt">ФИО</span>
                                         <input asp-for="FullName" type="text" class="form-control" placeholder="Иван Иванов Иванович">
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                            <div class="row mb-3">
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text wdt" id="basic-addon1">Расчетный счет</span>
+                                        <span class="input-group-text wdt">Расчетный счет</span>
                                         <input asp-for="Bill" type="text" class="form-control">
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
                            <div class="row mb-3">
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text wdt" id="basic-addon1">Банк получателя</span>
+                                        <span class="input-group-text wdt">Банк получателя</span>
                                         <input asp-for="Bank" type="text" class="form-control">
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
                 <div class="col"></div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4">
-                    <button class="btn btn-primary btn-block justify-content-end but_continue" onclick="message();" type="submit">Отправить на модерацию</button>
+                    <button class="btn btn-primary btn-block justify-content-end but_continue" id="id_message" type="submit">Отправить на модерацию</button>
                 </div>
             </div>
         </div>

@@ -29,10 +29,8 @@ var loadFile = function (event) {
 
 CKEDITOR.replace('FullDescription');
 
-var message = function () {
-    alert("Проект был успешно создан и отправлен на модерацию! Статус проекта можно просмотреть в профиле.");
-}
-
-$("#id_message").bind("click", function () {
-    alert("Проект был успешно создан и отправлен на модерацию! Статус проекта можно просмотреть в профиле.");
+$("#submitBotton").bind("click", function () {
+    if ($("#myform").valid()) {
+        alert("Проект был успешно создан и отправлен на модерацию! Статус проекта можно просмотреть в профиле.");
+    }
 });

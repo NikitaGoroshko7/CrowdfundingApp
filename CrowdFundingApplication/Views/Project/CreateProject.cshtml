@@ -4,7 +4,7 @@
     ViewData["Title"] = "Создание проекта";
 }
 
-<form method="post" asp-action="CreateProject" enctype="multipart/form-data">
+<form method="post" asp-action="CreateProject" enctype="multipart/form-data" id="myform">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mt-5">
 
@@ -260,7 +260,7 @@
                 <div class="col"></div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4">
-                    <button class="btn btn-primary btn-block justify-content-end but_continue" id="id_message" type="submit">Отправить на модерацию</button>
+                    <button class="btn btn-primary btn-block justify-content-end but_continue" id="submitBotton" type="submit">Отправить на модерацию</button>
                 </div>
             </div>
         </div>

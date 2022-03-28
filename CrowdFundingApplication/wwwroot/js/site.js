@@ -28,3 +28,9 @@ var loadFile = function (event) {
 };
 
 CKEDITOR.replace('FullDescription');
+
+$("#submitBotton").bind("click", function () {
+    if ($("#myform").valid()) {
+        alert("Проект был успешно создан и отправлен на модерацию! Статус проекта можно просмотреть в профиле.");
+    }
+});

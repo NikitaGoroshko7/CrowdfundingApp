@@ -43,7 +43,7 @@ public class ProjectController : Controller
                 await _db.AddAsync(obj);
                 await _db.SaveChangesAsync();
 
-                return RedirectToAction("CreateProjectInDetails", "Project");
+                return RedirectToAction("Index", "Home");
             }
         }
         return View(model);
@@ -59,7 +59,11 @@ public class ProjectController : Controller
             Category = model.Category,
             Sum = model.Sum,
             Date = model.Date,
-            FullDescription = model.FullDescription
+            FullDescription = model.FullDescription,
+            Bill = model.Bill,
+            Bank = model.Bank,
+            Type = model.Type,
+            Initials = model.Initials
         };
         return project;
     }

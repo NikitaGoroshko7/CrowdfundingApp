@@ -10,4 +10,9 @@ public class CreateProject
     public decimal Sum { get; set; }
     public DateTime Date { get; set; }
     public string FullDescription { get; set; }
+    public string FullName { get; set; }
+    public string Bill { get; set; }
+    public string Bank { get; set; }
+    public OrganizationEnum Type { get; set; }
+    public string Initials { get; set; }
 }
